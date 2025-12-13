@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ market.name }}</title>
+</head>
+<body>
+
+<h1>{{ market.name }}</h1>
+<p>Location: {{ market.location }}</p>
+
+<h2>Products</h2>
+
+<ul>
+{% for product in products %}
+    <li>
+        {{ product.name }} — ${{ product.price }}
+        <form action="/preorder" method="post" style="display:inline;">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="number" name="quantity" value="1" min="1" required>
+            <button type="submit">Pre-Order</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+
+<br>
+<a href="/">← Back to Markets</a>
+
+</body>
+</html>

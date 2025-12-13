@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmers Markets</title>
+</head>
+<body>
+    <h1>Farmers Markets</h1>
+
+    <ul>
+        {% for market in markets %}
+            <li>
+                <a href="/market/{{ market.id }}">
+                    {{ market.name }} — {{ market.location }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <form action="/search" method="get">
+        <input type="text" name="q" placeholder="Search products">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
